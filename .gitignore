@@ -2,3 +2,4 @@ __pycache__/*
 application.log
 utils/__pycache__/vioce2txt.cpython-310.pyc
 utils/__pycache__/app_voice2text.cpython-310.pyc
+tmp
