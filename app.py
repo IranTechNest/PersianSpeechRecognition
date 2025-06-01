@@ -228,7 +228,6 @@ class SpeechRecognitionApp:
 if __name__ == "__main__":
     # Initialize speech recognition
     speech_rec = AppSpeechRecognition()
-    # Create UI
     root = tk.Tk()
     app = SpeechRecognitionApp(root, speech_rec)
     root.mainloop()
