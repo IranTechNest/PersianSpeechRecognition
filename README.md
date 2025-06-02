@@ -49,12 +49,9 @@ pred_transcription = speech.speech_recognition("output_audio.wav")
 pred_transcription = [سلام من اومدم یک دو سه چهار]
 ```
 
-
 ## 🤝 Contributing
 We welcome contributions! Please read our Contributing Guidelines before submitting pull requests or issues. my emila is : raminram6970@gmail.com
 
-## 📜 License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
 Thanks to Mozilla Common Voice for open-source datasets
