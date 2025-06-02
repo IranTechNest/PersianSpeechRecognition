@@ -2,39 +2,35 @@ import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
 import threading
-from utils.app_voice2text import AppSpeechRecognition
+from src.app_voice2text import AppSpeechRecognition
 import time
 import librosa
+from data.icons import icon_to_image
 
 class SpeechRecognitionApp:
     def __init__(self, root, speech_rec):
         self.root = root
         self.speech_rec = speech_rec
         self.recording = False
-        
+        self.scale_factor = 1.0  # Default scale factor
         # Set up the UI
         self.root.title("Speech Recognition")
         self.root.geometry("400x300")
-        
-        # Microphone button with icon
-        try:
-            # Try to load a microphone icon (you'll need to provide one)
-            self.mic_img = ImageTk.PhotoImage(Image.open("microphone.png").resize((64, 64)))
-        except:
-            # Fallback to text if image not found
-            self.mic_img = None
+        self.app_icon = icon_to_image("microphone", fill="#e2e2e9", scale_to_width=int(25*self.scale_factor))
+        self.app_icon_red = icon_to_image("microphone", fill="#ff0000", scale_to_width=int(25*self.scale_factor))
+        self.root.iconphoto(True, self.app_icon)
+
         
         self.mic_button = ttk.Button(
             root, 
-            image=self.mic_img if self.mic_img else None,
-            text="🎤" if not self.mic_img else "",
+            image=self.app_icon,
             command=self.toggle_recording,
             style='TButton'
         )
-        self.mic_button.pack(pady=20)
+        self.mic_button.pack(pady=5)
         
         # Status label
-        self.status_label = ttk.Label(root, text="Ready to record", font=('Arial', 12))
+        self.status_label = ttk.Label(root, text="Ready to record", font=('Arial', 8))
         self.status_label.pack()
         
         
@@ -47,21 +43,22 @@ class SpeechRecognitionApp:
             self.result_frame, 
             height=5, 
             wrap=tk.WORD, 
-            font=('Arial', 10),
+            font=('Arial', 6),
             state=tk.DISABLED
         )
         self.result_text.pack(fill=tk.BOTH, expand=True)
         
         # Configure styles
         self.style = ttk.Style()
-        self.style.configure('TButton', font=('Arial', 12))
+        self.style.configure('TButton', font=('Arial', 8))
         self.style.configure('Red.TButton', foreground='red')
         
     def toggle_recording(self):
         if not self.recording:
             # Start recording
             self.recording = True
-            self.mic_button.configure(style='Red.TButton')
+            # self.mic_button.configure(style='Red.TButton')
+            self.mic_button.config(image=self.app_icon_red, text="")
             self.status_label.config(text="Recording...")
             
             # Start recording in a separate thread
@@ -72,12 +69,13 @@ class SpeechRecognitionApp:
             self.record_thread.start()
         else:
              # Stop recording
+            self.status_label.config(text="Recording stopped, processing...")
+            self.root.update()
             time.sleep(0.1)  # Small delay to ensure recording stops cleanly
             self.speech_rec.stop_recording()
             self.recording = False
-            self.mic_button.configure(style='TButton')
-            self.status_label.config(text="Processing...")
-            self.root.update()
+            # self.mic_button.configure(style='TButton')
+            self.mic_button.config(image=self.app_icon)
             
             # Get transcription
             try:
@@ -105,12 +103,12 @@ class SpeechRecognitionApp:
         while self.recording:
             elapsed = time.time() - start_time
             elapsed = int(elapsed)
-            self.status_label.config(text=f"Recording... {elapsed}s")
+            self.status_label.config(text=f"Recording {elapsed}s")
             self.root.update()
             time.sleep(0.1)  # Small sleep to prevent CPU overuse
     
     def show_results(self, transcription):
-        self.status_label.config(text="Recording complete")
+        self.status_label.config(text="Process complete")
         
         # Clear the existing result frame and recreate it with more features
         self.result_frame.destroy()
@@ -126,7 +124,7 @@ class SpeechRecognitionApp:
             self.result_frame, 
             height=5, 
             wrap=tk.WORD, 
-            font=('Arial', 10),
+            font=('Arial', 14),
             yscrollcommand=scrollbar.set,
             padx=5,
             pady=5
