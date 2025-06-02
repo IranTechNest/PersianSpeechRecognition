@@ -4,7 +4,8 @@ from messageHandler import logger
 
 class SpeechRecognition:
     def __init__(self):
-        self.model_id = 'Pardner/whisper-small-fa'
+        # self.model_id = 'Pardner/whisper-small-fa'
+        self.model_id = 'masoudkaviani/whisper-medium-fa'
         try:
             logger.info(f"Loading model {self.model_id}")
             self.processor = WhisperProcessor.from_pretrained(self.model_id)
@@ -24,8 +25,3 @@ class SpeechRecognition:
         pred_transcription = self.processor.batch_decode(predicted_ids, skip_special_tokens=True)[0]
         a = 0
     
-
-if __name__ == "__main__":
-    speech_rec = SpeechRecognition()
-    speech_rec.speech_recognition(audio_path="tmp/output_audio.wav")
-

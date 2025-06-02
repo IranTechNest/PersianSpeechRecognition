@@ -10,7 +10,11 @@ import noisereduce as nr
 
 class AppSpeechRecognition:
     def __init__(self):
-        self.model_id = 'Pardner/whisper-small-fa'
+        # self.model_id = 'Pardner/whisper-small-fa'
+        self.model_id = 'masoudkaviani/whisper-medium-fa'
+        # self.model_id = 'alisharifi/whisper-farsi'
+        # self.model_id = 'masoudkaviani/whisper-small-fa'
+        
         try:
             logger.info(f"Loading model {self.model_id}")
             self.processor = WhisperProcessor.from_pretrained(self.model_id)

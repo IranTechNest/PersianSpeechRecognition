@@ -105,7 +105,7 @@ class SpeechRecognitionApp:
         while self.recording:
             elapsed = time.time() - start_time
             elapsed = int(elapsed)
-            self.status_label.config(text=f"Recording... {elapsed}s remaining")
+            self.status_label.config(text=f"Recording... {elapsed}s")
             self.root.update()
             time.sleep(0.1)  # Small sleep to prevent CPU overuse
     
@@ -144,6 +144,7 @@ class SpeechRecognitionApp:
         self.context_menu.add_command(label="Paste", command=self.paste_text)
         self.context_menu.add_separator()
         self.context_menu.add_command(label="Select All", command=self.select_all)
+        self.context_menu.add_command(label="Save", command=self.save_to_file)
         
         # Bind right-click to show context menu
         self.result_text.bind("<Button-3>", self.show_context_menu)
@@ -152,32 +153,6 @@ class SpeechRecognitionApp:
         button_frame = ttk.Frame(self.result_frame)
         button_frame.pack(fill=tk.X, pady=(5, 0))
         
-        # Add copy button
-        copy_button = ttk.Button(
-            button_frame,
-            text="Copy Text",
-            command=self.copy_text,
-            width=10
-        )
-        copy_button.pack(side=tk.LEFT, padx=5)
-        
-        # Add clear button
-        clear_button = ttk.Button(
-            button_frame,
-            text="Clear",
-            command=self.clear_text,
-            width=10
-        )
-        clear_button.pack(side=tk.LEFT, padx=5)
-        
-        # Add save button
-        save_button = ttk.Button(
-            button_frame,
-            text="Save to File",
-            command=self.save_to_file,
-            width=10
-        )
-        save_button.pack(side=tk.RIGHT, padx=5)
 
     def show_context_menu(self, event):
         try:
