@@ -39,9 +39,9 @@ A Persian (Farsi) speech recognition system designed to convert spoken Persian l
 ```bash
  python app.py
 ```
-2. python
+2. Speech Recognition
  ``` bash
-from src.vioce2txt import SpeechRecognition
+from src.voice2txt import SpeechRecognition
 
 speech = SpeechRecognition(model='medium')
 pred_transcription = speech.speech_recognition("output_audio.wav") 
