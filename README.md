@@ -4,6 +4,8 @@
 [![Stars](https://img.shields.io/github/stars/IranTechNest/PersianSpeechRecognition)](https://github.com/IranTechNest/PersianSpeechRecognition/stargazers)
 [![Issues](https://img.shields.io/github/issues/IranTechNest/PersianSpeechRecognition)](https://github.com/IranTechNest/PersianSpeechRecognition/issues)
 
+[![Contributors](https://img.shields.io/github/contributors/IranTechNest/PersianSpeechRecognition)](https://github.com/IranTechNest/PersianSpeechRecognition/graphs/contributors)
+
 A Persian (Farsi) speech recognition system designed to convert spoken Persian language into text. This project leverages deep learning models to achieve high-accuracy transcription for Persian speech.
 
 ![alt text](data/ezgif-72c76af537cad5.gif)
@@ -49,8 +51,17 @@ pred_transcription = speech.speech_recognition("output_audio.wav")
 pred_transcription = [سلام من اومدم یک دو سه چهار]
 ```
 
-## 🤝 Contributing
-We welcome contributions! Please read our Contributing Guidelines before submitting pull requests or issues. my emila is : raminram6970@gmail.com
+## 🤝 Contributing [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/IranTechNest/PersianSpeechRecognition/issues)
+
+
+We love contributions from the community! Here's how you can help improve PersianSpeechRecognition:
+
+- 🐛 **Report bugs** by [opening an issue](https://github.com/IranTechNest/PersianSpeechRecognition/issues)
+- 💡 **Suggest new features** through GitHub issues
+- 📝 **Improve documentation** (fix typos, add examples)
+- 💻 **Contribute code** - see our [Contribution Guide](CONTRIBUTING.md)
+
+First time contributing? Look for issues labeled [`good first issue`](https://github.com/IranTechNest/PersianSpeechRecognition/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22
 
 
 ## 🙏 Acknowledgments
@@ -59,8 +70,13 @@ Thanks to Mozilla Common Voice for open-source datasets
 Inspired by DeepSpeech and HuggingFace Transformers
 
 ## 📬 Contact
-For questions or support, please open an issue or contact the maintainers at IranTechNest. or raminram6970@gmail.com
+For questions or support, please open an issue or contact the maintainers at IranTechNest.
 
+## ℹ️ About PersianSpeechRecognition
+
+[![Telegram](https://img.shields.io/badge/Join-Telegram%20Group-blue?logo=telegram)](https://t.me/+Cfc8CgrtIfRmNzRk)
+
+A Persian speech recognition toolkit for developers and researchers...
 ## 📌 Citation
 ``` 
 @misc{raminram_persianspeech,
