@@ -72,7 +72,9 @@ First time contributing? Look for issues labeled [`good first issue`](https://gi
 
 ## 🙏 Acknowledgments
 Thanks to Mozilla Common Voice for open-source datasets
+
 Thank of https://huggingface.co/masoudkaviani for funtuing the models
+
 Inspired by DeepSpeech and HuggingFace Transformers
 
 ## 📬 Contact
