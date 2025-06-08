@@ -42,6 +42,12 @@ A Persian (Farsi) speech recognition system designed to convert spoken Persian l
  python app.py
 ```
 2. Speech Recognition
+You can choose from the following supported models for speech recognition:
+
+- `small`
+- `small-v2`
+- `medium`
+- `large`
  ``` bash
 from src.voice2txt import SpeechRecognition
 

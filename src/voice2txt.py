@@ -9,6 +9,10 @@ class SpeechRecognition:
             self.model_id = 'masoudkaviani/whisper-small-fa'
         elif model == 'medium':        
             self.model_id = 'masoudkaviani/whisper-medium-fa'
+        elif model =='small-v2':
+            self.model_id = 'Pardner/whisper-small-fa'
+        elif model == 'large':
+            self.model_id = 'masoudkaviani/whisper-large-v2-fa'
         try:
             logger.info(f"Loading model {self.model_id}")
             self.processor = WhisperProcessor.from_pretrained(self.model_id)
